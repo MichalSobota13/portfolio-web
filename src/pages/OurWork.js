@@ -14,6 +14,7 @@ import {
   sliderContainer,
 } from "../animation";
 import { useScroll } from "../components/useScroll";
+import ScrollTop from "../components/ScrollTop";
 
 const OurWork = () => {
   const [element, controls] = useScroll();
@@ -67,17 +68,18 @@ const OurWork = () => {
         variants={fade}
         animate={controls2}
         initial="hidden">
-        <h2>Good Times</h2>
+        <motion.h2>Good Times</motion.h2>
         <motion.div
           variants={lineAnim}
           className="line"></motion.div>
-        <Link to="/work/goodtimes">
+        <Link to="/work/good-times">
           <img
             src={goodtimes}
             alt="goodtimes"
           />
         </Link>
       </Movie>
+      <ScrollTop />
     </Work>
   );
 };
@@ -86,6 +88,9 @@ const Work = styled(motion.div)`
   min-height: 100vh;
   overflow: hidden;
   padding: 5rem 10rem;
+  @media (max-width: 1300px) {
+    padding: 2rem 2rem;
+  }
   h2 {
     padding: 1rem 0rem;
   }
