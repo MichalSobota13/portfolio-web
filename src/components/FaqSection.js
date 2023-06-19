@@ -1,65 +1,68 @@
 import React from "react";
 import styled from "styled-components";
 import { About } from "../styles";
+import Toggle from "./Toggle";
+import { LayoutGroup } from "framer-motion";
+import { useScroll } from "./useScroll";
+import { scrollReveal } from "../animation";
 
 const FaqSection = () => {
+  const [element, controls] = useScroll();
   return (
-    <Faq>
+    <Faq
+      variants={scrollReveal}
+      ref={element}
+      animate={controls}
+      initial="hidden">
       <h2>
         Any Questions <span>FAQ</span>
       </h2>
-      <div className="question">
-        <h4>How Do I Start?</h4>
-        <div className="answer">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta
-            dolor quae ex distinctio incidunt quidem hic, tempore animi,
-            deserunt quis corporis inventore perspiciatis quisquam!
-            Necessitatibus nam velit consequatur earum aut?
-          </p>
-        </div>
-        <div className="faq-line"></div>
-      </div>
-      <div className="question">
-        <h4>Daily Schedule</h4>
-        <div className="answer">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta
-            dolor quae ex distinctio incidunt quidem hic, tempore animi,
-            deserunt quis corporis inventore perspiciatis quisquam!
-            Necessitatibus nam velit consequatur earum aut?
-          </p>
-        </div>
-        <div className="faq-line"></div>
-      </div>
-      <div className="question">
-        <h4>Differrent Payment Methods</h4>
-        <div className="answer">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta
-            dolor quae ex distinctio incidunt quidem hic, tempore animi,
-            deserunt quis corporis inventore perspiciatis quisquam!
-            Necessitatibus nam velit consequatur earum aut?
-          </p>
-        </div>
-        <div className="faq-line"></div>
-      </div>
-      <div className="question">
-        <h4>What Products do you offer.</h4>
-        <div className="answer">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta
-            dolor quae ex distinctio incidunt quidem hic, tempore animi,
-            deserunt quis corporis inventore perspiciatis quisquam!
-            Necessitatibus nam velit consequatur earum aut?
-          </p>
-        </div>
-        <div className="faq-line"></div>
-      </div>
+      <LayoutGroup>
+        <Toggle title="How Do I Start?">
+          <div className="answer">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta
+              dolor quae ex distinctio incidunt quidem hic, tempore animi,
+              deserunt quis corporis inventore perspiciatis quisquam!
+              Necessitatibus nam velit consequatur earum aut?
+            </p>
+          </div>
+        </Toggle>
+        <Toggle title="Daily Schedule">
+          <div className="answer">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta
+              dolor quae ex distinctio incidunt quidem hic, tempore animi,
+              deserunt quis corporis inventore perspiciatis quisquam!
+              Necessitatibus nam velit consequatur earum aut?
+            </p>
+          </div>
+        </Toggle>
+        <Toggle title="Differrent Payment Methods">
+          <div className="answer">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta
+              dolor quae ex distinctio incidunt quidem hic, tempore animi,
+              deserunt quis corporis inventore perspiciatis quisquam!
+              Necessitatibus nam velit consequatur earum aut?
+            </p>
+          </div>
+        </Toggle>
+        <Toggle title="What Products do you offer.">
+          <div className="answer">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta
+              dolor quae ex distinctio incidunt quidem hic, tempore animi,
+              deserunt quis corporis inventore perspiciatis quisquam!
+              Necessitatibus nam velit consequatur earum aut?
+            </p>
+          </div>
+        </Toggle>
+      </LayoutGroup>
     </Faq>
   );
 };
